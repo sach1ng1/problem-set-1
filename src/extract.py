@@ -24,6 +24,13 @@ import pandas as pd
 import sys
 
 def extract_weather_data():
+    """ 
+    Extracts the weather data from the weather visual crossing api
+
+    Returns:
+    weather_data:
+        Weather data frame that will then be used in transform_load
+    """    
     # Define the API endpoint and query parameters
     base_url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'
     location = 'Chicago,IL'
@@ -63,6 +70,13 @@ def extract_weather_data():
 
 # Extract CTA transit ridership data
 def extract_transit_data():
+    """
+    Extracts the transit data from a url
+
+    Returns:
+    df: 
+        Transit dataframe that will then be used in tranform_load
+    """    
     url="https://data.cityofchicago.org/api/views/6iiy-9s97/rows.csv?accessType=DOWNLOAD"
     df=pd.read_csv(url)
     return df
